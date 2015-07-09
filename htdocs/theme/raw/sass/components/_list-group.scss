@@ -40,6 +40,10 @@
         border-left: 0;
         border-right: 0;
     }
+
+    &.attachment-toggle {
+        border-left: 1px solid #ddd;
+    }
 }
 
 
