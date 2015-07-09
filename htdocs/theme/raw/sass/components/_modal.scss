@@ -9,14 +9,15 @@ $width-sm: 90%;
     border: 1px solid $modal-header-border-color;
 }
 
-.modal-shown {
+.modal-tinymce,
+.modal-docked.in {
     background: rgba(0,0,0,0.09);
     display: block;
     .modal-content {
         height: 90%;
     }
 }
-.modal-shown,
+.modal-docked,
 .page-modal {
     .modal-content {
         max-height: 100%;
@@ -74,7 +75,8 @@ $width-sm: 90%;
     right: 0px;
     bottom: 0px;
 
-    &.active {
+    &.active,
+    &.in {
         @include transition(visibility 0s 0.2s);
         visibility: visible;
         transition: visibility 0s 0.2s;
@@ -84,7 +86,6 @@ $width-sm: 90%;
         }
     }
     &.closed {
-
         .modal-dialog {
             @include transition(right 0.5s ease-in-out);
             right: -($width + 5);
@@ -105,11 +106,11 @@ $width-sm: 90%;
         }
     }
 
-    .modal-header{
+    .modal-header {
         background:  $brand-primary;
         padding: 10px 15px;
         color: #fff;
-         h4 {
+         h4, a {
             color: #fff;
         }
         .close {
