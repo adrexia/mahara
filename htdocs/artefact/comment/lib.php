@@ -541,10 +541,13 @@ class ArtefactTypeComment extends ArtefactType {
             return array(0, '');
         }
 
+        $artefacttitle = $artefact->title;
+
         $artefacturl = get_config('wwwroot') . 'artefact/artefact.php?view=' . $view->get('id') . '&artefact=' . $artefact->get('id');
         if ($html) {
             $smarty = smarty_core();
             $smarty->assign('artefacturl', $artefacturl);
+            $smarty->assign('artefacttitle', $artefacttitle);
             $smarty->assign('blockid', $blockid);
             $smarty->assign('commentcount', $commentcount);
             $smarty->assign('comments', $comments);
