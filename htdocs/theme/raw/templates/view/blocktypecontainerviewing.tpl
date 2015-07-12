@@ -7,13 +7,11 @@
 
             <span class="inner-link">
                 {if $link}
-                   <a href="{$link}" class="secondary-link text-default">
-                {/if}
-
-                {$title}
-
-                {if $link}
-                   </a>
+                   <a href="{$link}" class="secondary-link text-default">{$title}</a>
+                {elseif $viewartefacturl}
+                    <a href="{$viewartefacturl}" class="secondary-link text-default">{$title}</a>
+                {else}
+                    {$title}
                 {/if}
 
                 {if $feedlink}
@@ -32,19 +30,12 @@
     {else}
         {if $link}
             <a href="{$link}" class="text-default btn-default btn-sm pull-right">
-                {str tag=detailslinkalt section=view} 
+                {str tag=detailslinkalt section=view}
             </a>
         {/if}
     {/if}
 
-    <div class="{if !$title}no-heading {/if}block{if $retractable} collapse{if $retractedonload}{else} in{/if}{/if}"  id="blockinstance_{$id}_target" {if $loadbyajax}data-blocktype-ajax="{$id}"{else}data-blocktype-noajax="{$id}"{/if}>{if !$loadbyajax}{$content|safe}{/if}</div>
-    
-    {if $viewartefacturl} 
-
-        <a href="{$viewartefacturl}" title="{str tag=clickformoreinformation section=view}" class="panel-footer mtl">
-            {str tag=detailslinkalt section=view} 
-            <span class="icon icon-arrow-circle-right mls  pull-right"></span>
-        </a>
-
-    {/if}
+    <div class="{if !$title}no-heading {/if}block{if $retractable} collapse{if $retractedonload}{else} in{/if}{/if}"  id="blockinstance_{$id}_target" {if $loadbyajax}data-blocktype-ajax="{$id}"{else}data-blocktype-noajax="{$id}"{/if}>
+        {if !$loadbyajax}{$content|safe}{/if}
+    </div>
 </div>

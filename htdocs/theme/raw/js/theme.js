@@ -131,6 +131,19 @@ jQuery(function($) {
         });
     }
 
+    function toggleAttachment() {
+        var button = $('[data-toggle="attachment"]'),
+            id,
+            attachments = $('ul.attachment-toggle');
+
+        attachments.toggle();
+        button.on('click', function (e) {
+            id = $(this).attr('id');
+            attachments = $('[data-attachment-id=' + id +']');
+            attachments.toggle();
+        });
+    }
+
     $(window).on('resize colresize', function(){
         carouselHeight();
     });
@@ -149,6 +162,7 @@ jQuery(function($) {
     siteMessages();
     resetOnCollapse();
     attachTooltip();
+    toggleAttachment();
 
     if ($('.js-dropdown-group').length > 0){
         attachInputDropdown();
