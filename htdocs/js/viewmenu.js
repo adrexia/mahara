@@ -70,6 +70,20 @@ function isTinyMceUsed() {
     return (typeof(tinyMCE) != 'undefined' && typeof(tinyMCE.get('add_feedback_form_message')) != 'undefined');
 }
 
+addLoadEvent(function () {
+    if ($('toggle_watchlist_link')) {
+        connect('toggle_watchlist_link', 'onclick', function (e) {
+            e.stop();
+            if (typeof artefactid === 'undefined') {
+                artefactid = null;
+            }
+            sendjsonrequest(config.wwwroot + 'view/togglewatchlist.json.php', {'view': viewid, 'artefact': artefactid}, 'POST', function(data) {
+                $('toggle_watchlist_link').innerHTML = data.newtext;
+            });
+        });
+    }
+});
+
 jQuery(function($j) {
     $j(".copyview").each(function() {
         $j(this).click(function(e) {
