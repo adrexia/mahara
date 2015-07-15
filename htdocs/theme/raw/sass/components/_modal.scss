@@ -93,6 +93,10 @@ $width-sm: 90%;
     right: 0px;
     bottom: 0px;
 
+    .mce-tinymce {
+        display:none;
+    }
+
     &.active,
     &.in {
         @include transition(visibility 0s 0.2s);
@@ -101,6 +105,9 @@ $width-sm: 90%;
         .modal-dialog {
             @include transition(right 0.3s ease-in-out);
             right: 0;
+        }
+        .mce-tinymce {
+            display: block;
         }
     }
     &.closed {

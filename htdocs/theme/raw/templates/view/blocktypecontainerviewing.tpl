@@ -5,25 +5,25 @@
             <a data-toggle="collapse" href="#blockinstance_{$id}_target" aria-expanded="true" aria-controls="blockinstance_{$id}_target" class="outer-link"></a>
             {/if}
 
+            {$title}
             <span class="inner-link">
                 {if $link}
-                   <a href="{$link}" class="secondary-link text-default">{$title}</a>
+                    <a href="{$link}" class="detail-link secondary-link text-small text-lowercase pls">{str tag=detailslinkalt section=view}</a>
                 {elseif $viewartefacturl}
-                    <a href="{$viewartefacturl}" class="secondary-link text-default">{$title}</a>
-                {else}
-                    {$title}
-                {/if}
-
-                {if $feedlink}
-                 <a href="{$feedlink}" class="secondary-link">
-                        <span class="icon-rss icon icon-large pll text-orange"></span>
-                        <span class="sr-only">RSS</span>
-                    </a>
+                    <a href="{$viewartefacturl}" class="detail-link secondary-link text-small text-lowercase pls">{str tag=detailslinkalt section=view}</a>
                 {/if}
             </span>
 
+            {if $feedlink}
+                <a href="{$feedlink}" class="secondary-link inner-link">
+                    <span class="icon-rss icon icon-large pll text-orange"></span>
+                    <span class="sr-only">RSS</span>
+                </a>
+            {/if}
+
+
             {if $retractable}
-            <span class="icon icon-chevron-down pls collapse-indicator pull-right inner-link"></span>
+            <span class="icon icon-chevron-down pls collapse-indicator pull-right"></span>
             {/if}
 
         </h3>
