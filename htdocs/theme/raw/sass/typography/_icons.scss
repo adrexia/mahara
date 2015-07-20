@@ -2,6 +2,8 @@
 
 .icon-placeholder {
   opacity:0;
+  pointer-events: none;
+  cursor: default;
 }
 
 .icon-annotation:before {
